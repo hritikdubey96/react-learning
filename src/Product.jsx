@@ -1,11 +1,12 @@
 import "./Product.css";
-
-function Product() {
+function Product({title,price}) {
+  let isDiscount = price > 3000;
+  let styles = {backgroundColor: isDiscount? "yellow":""}
   return (
-    <div className="product">
-      <h3>Product Title</h3>
-      <h5>Price : ₹999</h5>
-      <p>Description of the product.</p>
+    <div className="product" style={styles}>
+      <h3>{title}</h3>
+      <h5>{price}</h5>
+      {isDiscount && <p>Discount of 5%</p>}
     </div>
   );
 }
